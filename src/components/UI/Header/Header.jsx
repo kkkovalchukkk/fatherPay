@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Logo from "../Logo";
 import HeaderCounter from "../../OnlineCounter";
@@ -11,9 +11,9 @@ const Header = ({ onlineCount }) => {
     <header className="header">
       <div className="wrapper header__wrapper">
         <div className="header__logo-group">
-          <NavLink className="header__logo-link" to={"/"}>
+          <Link className="header__logo-link" to={"/"}>
             <Logo />
-          </NavLink>
+          </Link>
           <HeaderCounter onlineCount={onlineCount} />
         </div>
         <div className="header__group">

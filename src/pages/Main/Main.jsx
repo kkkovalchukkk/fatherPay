@@ -49,7 +49,7 @@ const Main = ({
 
   return (
     <>
-      <main className="main">
+      <section className="main">
         <div className="wrapper main__wrapper">
           <div className="main__heading-field">
             <h2 className="subheading main__heading">Пополнение Steam</h2>
@@ -174,7 +174,7 @@ const Main = ({
             />
           </form>
         </div>
-      </main>
+      </section>
     </>
   );
 };
