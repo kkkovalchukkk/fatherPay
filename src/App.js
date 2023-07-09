@@ -33,7 +33,7 @@ function App() {
   };
   return (
     <div className="app">
-      <BrowserRouter>
+      <HashRouter>
         <PopupWindow popupWindowIsOpen={popupWindowIsOpen}>
           <div className="popup popup--contacts">
             <div className="popup__header">
@@ -79,7 +79,7 @@ function App() {
         </main>
 
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
