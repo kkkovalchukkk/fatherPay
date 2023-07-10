@@ -1,8 +1,13 @@
 import React from "react";
 
-const Button = ({ type = "button", caption = "Оплатить", tabIndex = "" }) => {
+const Button = ({
+  type = "button",
+  caption = "Оплатить",
+  tabIndex = "",
+  onClick = () => console.log("clicked"),
+}) => {
   return (
-    <button tabIndex={tabIndex} type={type} className="btn">
+    <button onClick={onClick} tabIndex={tabIndex} type={type} className="btn">
       {caption}
     </button>
   );

@@ -15,6 +15,7 @@ const Main = ({
   toggleUsername,
   setPaymentType,
   setConfirm,
+  openLoginPopup,
 }) => {
   const [userNameInputError, setUserNameInputError] = useState(false);
   const [paymentInputError, setPaymentInputError] = useState(false);
@@ -79,9 +80,13 @@ const Main = ({
                         : "payment-form__input"
                     }
                   />
-                  <Link className="payment-form__fieldset-link" to={"/faq"}>
+                  <button
+                    className="payment-form__fieldset-link"
+                    onClick={openLoginPopup}
+                    type="button"
+                  >
                     Где его взять?
-                  </Link>
+                  </button>
                 </fieldset>
                 <fieldset className="payment-form__fieldset">
                   <input

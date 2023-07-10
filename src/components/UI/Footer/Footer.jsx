@@ -1,16 +1,24 @@
 import React from "react";
 import Nav from "../../Nav";
 
-const Footer = () => {
+const Footer = ({ openPoliticsPopup, openRightsPopup }) => {
   return (
     <footer className="footer">
       <div className="wrapper footer__wrapper">
         <Nav />
         <div className="footer__right-group">
-          <button type="button" className="footer__copyrights-link">
+          <button
+            onClick={openPoliticsPopup}
+            type="button"
+            className="footer__copyrights-link"
+          >
             Политика конфиденциальности
           </button>
-          <button type="button" className="footer__copyrights-link">
+          <button
+            onClick={openRightsPopup}
+            type="button"
+            className="footer__copyrights-link"
+          >
             Пользовательское соглашение
           </button>
         </div>

@@ -6,7 +6,7 @@ import HeaderCounter from "../../OnlineCounter";
 import Socials from "../Socials";
 import Nav from "../../Nav";
 
-const Header = ({ onlineCount }) => {
+const Header = ({ onlineCount, openContactsPopup }) => {
   return (
     <header className="header">
       <div className="wrapper header__wrapper">
@@ -17,7 +17,7 @@ const Header = ({ onlineCount }) => {
           <HeaderCounter onlineCount={onlineCount} />
         </div>
         <div className="header__group">
-          <Nav />
+          <Nav openContactsPopup={openContactsPopup} />
           <Socials />
         </div>
       </div>
