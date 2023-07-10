@@ -9,10 +9,12 @@ import TransactionBar from "./components/TransactionBar";
 import "./App.css";
 import Faq from "./pages/Faq/Faq";
 import PopupWindow from "./components/PopupWindow/PopupWindow";
-import Socials from "./components/UI/Socials/Socials";
+import Socials from "./components/UI/Socials";
+import Button from "./components/UI/Button";
+import Order from "./pages/Order";
 
 import loginPopupImg from "./assets/img/login-popup-img.png";
-import Button from "./components/UI/Button/Button";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [onlineCount, setOnlineCount] = useState(9999);
@@ -20,6 +22,8 @@ function App() {
   const [paymentValue, setPaymentValue] = useState("");
   const [paymentType, setPaymentType] = useState("");
   const [confirm, setConfirm] = useState(false);
+  const [isOrder, setIsOrder] = useState(false);
+  const [orderStatus, setOrderStatus] = useState("time");
 
   const [popupWindowIsOpen, setPopupWindowIsOpen] = useState(false);
   const [contactsPopupIsOpen, setContactsPopupIsOpen] = useState(false);
@@ -33,31 +37,26 @@ function App() {
       setPaymentValue(value);
     }
   };
-
   const toggleUsername = (name) => {
     const russianLettersRegex = /[а-яА-Я]/g;
 
     if (!russianLettersRegex.test(name)) setUsername(name);
   };
-
   const closePopupWindowByClickOnOverlay = (e) => {
     if (e.target.className === "popup-window popup-window--active") {
       hideContactsPopup();
     }
   };
-
   const closePopupByEsc = (e) => {
     if (e.key === "Escape") {
       hideContactsPopup();
     }
   };
-
   const showPopupWindow = () => {
     window.addEventListener("click", closePopupWindowByClickOnOverlay);
     window.addEventListener("keydown", closePopupByEsc);
     setPopupWindowIsOpen(true);
   };
-
   const hidePopupWindow = () => {
     window.removeEventListener("click", closePopupWindowByClickOnOverlay);
     window.removeEventListener("keydown", closePopupByEsc);
@@ -67,7 +66,6 @@ function App() {
     setRightsPopupIsOpen(false);
     setLoginPopupIsOpen(false);
   };
-
   const openContactsPopup = () => {
     showPopupWindow();
     setContactsPopupIsOpen(true);
@@ -76,22 +74,18 @@ function App() {
     hidePopupWindow();
     setContactsPopupIsOpen(false);
   };
-
   const openPoliticsPopup = () => {
     showPopupWindow();
     setPoliticsPopupIsOpen(true);
   };
-
   const hidePoliticsPopup = () => {
     hidePopupWindow();
     setPoliticsPopupIsOpen(false);
   };
-
   const openRightsPopup = () => {
     showPopupWindow();
     setRightsPopupIsOpen(true);
   };
-
   const hideRightsPopup = () => {
     hidePopupWindow();
     setRightsPopupIsOpen(false);
@@ -100,7 +94,6 @@ function App() {
     showPopupWindow();
     setLoginPopupIsOpen(true);
   };
-
   const hideLoginPopup = () => {
     hidePopupWindow();
     setLoginPopupIsOpen(false);
@@ -1275,17 +1268,21 @@ function App() {
             <Button caption="Понятно" onClick={hideLoginPopup} />
           </div>
         </PopupWindow>
-        <Header
-          openContactsPopup={openContactsPopup}
-          onlineCount={onlineCount}
-        />
-        <TransactionBar />
+        {!isOrder && (
+          <Header
+            openContactsPopup={openContactsPopup}
+            onlineCount={onlineCount}
+          />
+        )}
+        {!isOrder && <TransactionBar />}
         <main className="main">
           <Routes>
             <Route
               path="/"
               element={
-                <Main
+                <ProtectedRoute
+                  element={Main}
+                  isOrder={isOrder}
                   username={username}
                   paymentValue={paymentValue}
                   paymentType={paymentType}
@@ -1295,17 +1292,34 @@ function App() {
                   setPaymentType={setPaymentType}
                   setConfirm={setConfirm}
                   openLoginPopup={openLoginPopup}
+                  setIsOrder={setIsOrder}
                 />
               }
             />
-            <Route path="/faq" element={<Faq />} />
+            <Route
+              path="/faq"
+              element={<ProtectedRoute element={Faq} isOrder={isOrder} />}
+            />
+            <Route
+              path="/order"
+              element={
+                <Order
+                  setIsOrder={setIsOrder}
+                  orderStatus={orderStatus}
+                  isOrder={isOrder}
+                  username={username}
+                  paymentValue={paymentValue}
+                />
+              }
+            />
           </Routes>
         </main>
-
-        <Footer
-          openPoliticsPopup={openPoliticsPopup}
-          openRightsPopup={openRightsPopup}
-        />
+        {!isOrder && (
+          <Footer
+            openPoliticsPopup={openPoliticsPopup}
+            openRightsPopup={openRightsPopup}
+          />
+        )}
       </HashRouter>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StatsList from "../../components/StatsList";
 import StatBlock from "../../components/StatBlock";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/UI/Button";
 import Payment from "../../components/Payment";
 import Footer from "../../components/UI/Footer";
@@ -16,11 +16,14 @@ const Main = ({
   setPaymentType,
   setConfirm,
   openLoginPopup,
+  setIsOrder,
 }) => {
   const [userNameInputError, setUserNameInputError] = useState(false);
   const [paymentInputError, setPaymentInputError] = useState(false);
   const [checkboxInputError, setCheckboxInputError] = useState(false);
   const [paymentError, setPaymentError] = useState(false);
+
+  const navigate = useNavigate();
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -37,6 +40,8 @@ const Main = ({
         paymentType,
       };
       console.log(data);
+      setIsOrder(true);
+      navigate("/order");
       return data;
     }
   };
