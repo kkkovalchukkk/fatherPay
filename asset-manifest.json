@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/fatherPay/static/css/main.15d186ee.css",
-    "main.js": "/fatherPay/static/js/main.66c92eca.js",
+    "main.css": "/fatherPay/static/css/main.e032467c.css",
+    "main.js": "/fatherPay/static/js/main.58f900c7.js",
     "static/media/Inter-ThinItalicBETA.eot": "/fatherPay/static/media/Inter-ThinItalicBETA.d48d71c60397c964c3c3.eot",
     "static/media/Inter-ThinItalicBETA.ttf": "/fatherPay/static/media/Inter-ThinItalicBETA.ab1bddda75ef8313afa1.ttf",
     "static/media/Inter-ExtraLightItalicBETA.eot": "/fatherPay/static/media/Inter-ExtraLightItalicBETA.56744818a1455954e3d9.eot",
@@ -56,6 +56,7 @@
     "static/media/Inter-Medium.woff": "/fatherPay/static/media/Inter-Medium.44e343ff76a98508d309.woff",
     "static/media/Inter-Black.woff": "/fatherPay/static/media/Inter-Black.87c06fd2ac7128c9a81d.woff",
     "static/media/Inter-Regular.woff": "/fatherPay/static/media/Inter-Regular.0d6f7c99e635f1fec4c9.woff",
+    "static/media/login-popup-img.png": "/fatherPay/static/media/login-popup-img.12d2d55fa007d03d55ee.png",
     "static/media/Inter-ThinItalicBETA.woff2": "/fatherPay/static/media/Inter-ThinItalicBETA.d508e6eecd6ce429c5fb.woff2",
     "static/media/Inter-ExtraLightItalicBETA.woff2": "/fatherPay/static/media/Inter-ExtraLightItalicBETA.3b6f575f5d2f96f8d047.woff2",
     "static/media/Inter-LightItalicBETA.woff2": "/fatherPay/static/media/Inter-LightItalicBETA.059c2f3980c6390aeb61.woff2",
@@ -83,11 +84,11 @@
     "static/media/close-icon.svg": "/fatherPay/static/media/close-icon.e98ef59e89d0f07a571d.svg",
     "static/media/check-icon.svg": "/fatherPay/static/media/check-icon.581c3e8956da74374c82.svg",
     "static/media/white-check-icon.svg": "/fatherPay/static/media/white-check-icon.f371593ac80794a18fbb.svg",
-    "main.15d186ee.css.map": "/fatherPay/static/css/main.15d186ee.css.map",
-    "main.66c92eca.js.map": "/fatherPay/static/js/main.66c92eca.js.map"
+    "main.e032467c.css.map": "/fatherPay/static/css/main.e032467c.css.map",
+    "main.58f900c7.js.map": "/fatherPay/static/js/main.58f900c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.15d186ee.css",
-    "static/js/main.66c92eca.js"
+    "static/css/main.e032467c.css",
+    "static/js/main.58f900c7.js"
   ]
 }
