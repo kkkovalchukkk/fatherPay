@@ -1,22 +1,26 @@
-import { useState } from "react";
-import { Routes, Route, HashRouter, BrowserRouter } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Routes, Route, HashRouter } from "react-router-dom";
+
+import "./App.css";
 
 import Header from "./components/UI/Header";
 import Footer from "./components/UI/Footer";
 import Main from "./pages/Main";
 import TransactionBar from "./components/TransactionBar";
 
-import "./App.css";
 import Faq from "./pages/Faq/Faq";
+import ProtectedRoute from "./components/ProtectedRoute";
 import PopupWindow from "./components/PopupWindow/PopupWindow";
 import Socials from "./components/UI/Socials";
 import Button from "./components/UI/Button";
 import Order from "./pages/Order";
+import BurgerMenu from "./components/BurgerMenu";
 
 import loginPopupImg from "./assets/img/login-popup-img.png";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
+  const [screenWidth, setScreenWidth] = useState("");
+
   const [onlineCount, setOnlineCount] = useState(9999);
   const [username, setUsername] = useState("");
   const [paymentValue, setPaymentValue] = useState("");
@@ -30,6 +34,24 @@ function App() {
   const [politicsPopupIsOpen, setPoliticsPopupIsOpen] = useState(false);
   const [rightsPopupIsOpen, setRightsPopupIsOpen] = useState(false);
   const [loginPopupIsOpen, setLoginPopupIsOpen] = useState(false);
+  const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false);
+
+  useEffect(() => {
+    console.log(window.screen.width);
+    setScreenWidth(window.screen.width);
+    window.addEventListener("resize", () => {
+      console.log(window.screen.width);
+      setScreenWidth(window.screen.width);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (burgerMenuIsOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [burgerMenuIsOpen]);
 
   const togglePaymentValue = (value) => {
     const regex = /^(?!0)\d*$/;
@@ -102,6 +124,10 @@ function App() {
   return (
     <div className="app">
       <HashRouter>
+        <BurgerMenu
+          burgerMenuIsOpen={burgerMenuIsOpen}
+          openContactsPopup={openContactsPopup}
+        />
         <PopupWindow popupWindowIsOpen={popupWindowIsOpen}>
           <div
             className={
@@ -1270,6 +1296,8 @@ function App() {
         </PopupWindow>
         {!isOrder && (
           <Header
+            setBurgerMenuIsOpen={setBurgerMenuIsOpen}
+            burgerMenuIsOpen={burgerMenuIsOpen}
             openContactsPopup={openContactsPopup}
             onlineCount={onlineCount}
           />
@@ -1282,6 +1310,7 @@ function App() {
               element={
                 <ProtectedRoute
                   element={Main}
+                  screenWidth={screenWidth}
                   isOrder={isOrder}
                   username={username}
                   paymentValue={paymentValue}
@@ -1318,6 +1347,7 @@ function App() {
           <Footer
             openPoliticsPopup={openPoliticsPopup}
             openRightsPopup={openRightsPopup}
+            openContactsPopup={openContactsPopup}
           />
         )}
       </HashRouter>

@@ -1,10 +1,15 @@
 import React from "react";
+import PaymentFormFooterMenu from "../PaymentFormFooterMenu";
 
 const Payment = ({
   setPaymentType,
   paymentType,
   setPaymentError,
   paymentError,
+  setCheckboxInputError,
+  setConfirm,
+  checkboxInputError,
+  screenWidth,
 }) => {
   return (
     <div className="payment-form__col">
@@ -411,6 +416,13 @@ const Payment = ({
           </label>
         </div>
       </div>
+      {screenWidth <= 960 && (
+        <PaymentFormFooterMenu
+          setCheckboxInputError={setCheckboxInputError}
+          setConfirm={setConfirm}
+          checkboxInputError={checkboxInputError}
+        />
+      )}
       <div className="payment-form__info-list">
         <div className="payment-form__info-list-row">
           <span className="payment-form__info-list-row-label">Заплатите:</span>

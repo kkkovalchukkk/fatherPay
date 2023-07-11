@@ -5,8 +5,14 @@ import Logo from "../Logo";
 import HeaderCounter from "../../OnlineCounter";
 import Socials from "../Socials";
 import Nav from "../../Nav";
+import BurgerBtn from "../BurgerBtn/BurgerBtn";
 
-const Header = ({ onlineCount, openContactsPopup }) => {
+const Header = ({
+  onlineCount,
+  openContactsPopup,
+  setBurgerMenuIsOpen,
+  burgerMenuIsOpen,
+}) => {
   return (
     <header className="header">
       <div className="wrapper header__wrapper">
@@ -19,6 +25,10 @@ const Header = ({ onlineCount, openContactsPopup }) => {
         <div className="header__group">
           <Nav openContactsPopup={openContactsPopup} />
           <Socials />
+          <BurgerBtn
+            burgerMenuIsOpen={burgerMenuIsOpen}
+            setBurgerMenuIsOpen={setBurgerMenuIsOpen}
+          />
         </div>
       </div>
     </header>

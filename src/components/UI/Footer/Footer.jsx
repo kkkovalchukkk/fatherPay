@@ -1,11 +1,11 @@
 import React from "react";
 import Nav from "../../Nav";
 
-const Footer = ({ openPoliticsPopup, openRightsPopup }) => {
+const Footer = ({ openPoliticsPopup, openRightsPopup, openContactsPopup }) => {
   return (
     <footer className="footer">
       <div className="wrapper footer__wrapper">
-        <Nav />
+        <Nav openContactsPopup={openContactsPopup} />
         <div className="footer__right-group">
           <button
             onClick={openPoliticsPopup}

@@ -4,6 +4,7 @@ const Logo = () => {
   return (
     <>
       <svg
+        className="logo"
         width="28"
         height="28"
         viewBox="0 0 28 28"
@@ -17,6 +18,7 @@ const Logo = () => {
         />
       </svg>
       <svg
+        className="company-name"
         width="150"
         height="24"
         viewBox="0 0 150 24"
