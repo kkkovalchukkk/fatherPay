@@ -5,12 +5,8 @@
 }
 
 :root {
-
   --wrapper-width: 1360px;
-
-
   --main-font: 'Inter', sans-serif;
-
   --bg-color: #181B22;
   --text-white: #fff;
   --text-tertiary: #4F5562;
@@ -836,7 +832,7 @@ input[type="number"] {
 }
 
 .accordion-item--active .accordion-item__toggle-btn {
-  background-image: url(./assets/icons/close-icon.svg);
+  background-image: url(./assets/icons/close-icon.svg) !important;
 }
 
 .accordion-item__header {
