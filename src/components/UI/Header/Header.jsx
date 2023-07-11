@@ -10,7 +10,7 @@ import BurgerBtn from "../BurgerBtn/BurgerBtn";
 const Header = ({
   onlineCount,
   openContactsPopup,
-  setBurgerMenuIsOpen,
+  toggleBurgerMenu,
   burgerMenuIsOpen,
 }) => {
   return (
@@ -27,7 +27,7 @@ const Header = ({
           <Socials />
           <BurgerBtn
             burgerMenuIsOpen={burgerMenuIsOpen}
-            setBurgerMenuIsOpen={setBurgerMenuIsOpen}
+            toggleBurgerMenu={toggleBurgerMenu}
           />
         </div>
       </div>

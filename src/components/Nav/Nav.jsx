@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 
-const Nav = ({ openContactsPopup, burgerMenuIsOpen }) => {
+const Nav = ({ openContactsPopup, burgerMenuIsOpen, toggleBurgerMenu }) => {
+  const navigate = useNavigate();
+
   const toggleOpenContactsPopup = (e) => {
     e.preventDefault();
     openContactsPopup();
@@ -10,12 +12,23 @@ const Nav = ({ openContactsPopup, burgerMenuIsOpen }) => {
   if (burgerMenuIsOpen) {
     return (
       <nav className="nav">
-        <Link onClick={() => {
-          
-        }} to={"/faq"} className="nav__link">
+        <Link
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/faq");
+            toggleBurgerMenu();
+          }}
+          className="nav__link"
+        >
           FAQs
         </Link>
-        <Link onClick={toggleOpenContactsPopup} className="nav__link">
+        <Link
+          onClick={(e) => {
+            toggleOpenContactsPopup(e);
+            toggleBurgerMenu();
+          }}
+          className="nav__link"
+        >
           Контакты
         </Link>
         <Link className="nav__link">Отзывы</Link>

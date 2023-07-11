@@ -46,12 +46,26 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (burgerMenuIsOpen) {
+    if (
+      burgerMenuIsOpen ||
+      popupWindowIsOpen ||
+      contactsPopupIsOpen ||
+      politicsPopupIsOpen ||
+      rightsPopupIsOpen ||
+      loginPopupIsOpen
+    ) {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
     }
-  }, [burgerMenuIsOpen]);
+  }, [
+    burgerMenuIsOpen,
+    popupWindowIsOpen,
+    contactsPopupIsOpen,
+    politicsPopupIsOpen,
+    rightsPopupIsOpen,
+    loginPopupIsOpen,
+  ]);
 
   const togglePaymentValue = (value) => {
     const regex = /^(?!0)\d*$/;
@@ -121,10 +135,27 @@ function App() {
     setLoginPopupIsOpen(false);
   };
 
+  const closeMenuByClickOnOverlay = (e) => {
+    if (e.target.className === "burger-window burger-window--active") {
+      setBurgerMenuIsOpen(false);
+    }
+  };
+
+  const toggleBurgerMenu = () => {
+    if (burgerMenuIsOpen) {
+      setBurgerMenuIsOpen(false);
+      window.removeEventListener("click", closeMenuByClickOnOverlay);
+    } else {
+      setBurgerMenuIsOpen(true);
+      window.addEventListener("click", closeMenuByClickOnOverlay);
+    }
+  };
+
   return (
     <div className="app">
       <HashRouter>
         <BurgerMenu
+          toggleBurgerMenu={toggleBurgerMenu}
           burgerMenuIsOpen={burgerMenuIsOpen}
           openContactsPopup={openContactsPopup}
         />
@@ -1296,7 +1327,7 @@ function App() {
         </PopupWindow>
         {!isOrder && (
           <Header
-            setBurgerMenuIsOpen={setBurgerMenuIsOpen}
+            toggleBurgerMenu={toggleBurgerMenu}
             burgerMenuIsOpen={burgerMenuIsOpen}
             openContactsPopup={openContactsPopup}
             onlineCount={onlineCount}

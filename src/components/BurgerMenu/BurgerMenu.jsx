@@ -1,7 +1,11 @@
 import React from "react";
 import Nav from "../Nav";
 
-const BurgerMenu = ({ burgerMenuIsOpen, openContactsPopup }) => {
+const BurgerMenu = ({
+  burgerMenuIsOpen,
+  openContactsPopup,
+  toggleBurgerMenu,
+}) => {
   return (
     <div
       className={
@@ -12,6 +16,7 @@ const BurgerMenu = ({ burgerMenuIsOpen, openContactsPopup }) => {
     >
       <div className="burger-menu">
         <Nav
+          toggleBurgerMenu={toggleBurgerMenu}
           openContactsPopup={openContactsPopup}
           burgerMenuIsOpen={burgerMenuIsOpen}
         />
