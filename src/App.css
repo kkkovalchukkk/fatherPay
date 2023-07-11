@@ -147,11 +147,11 @@ body {
 }
 
 .swiper-slide {
-  width: fit-content;
+  width: fit-content !important;
 }
 
 .swiper-wrapper {
-  transition-timing-function: linear;
+  transition-timing-function: linear !important;
 }
 
 .transaction-bar__widget {
