@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fatherPay/static/css/main.969c8c59.css",
+    "main.css": "/fatherPay/static/css/main.f23902ec.css",
     "main.js": "/fatherPay/static/js/main.a66f21a2.js",
     "static/media/Inter-ThinItalicBETA.eot": "/fatherPay/static/media/Inter-ThinItalicBETA.d48d71c60397c964c3c3.eot",
     "static/media/Inter-ThinItalicBETA.ttf": "/fatherPay/static/media/Inter-ThinItalicBETA.ab1bddda75ef8313afa1.ttf",
@@ -86,11 +86,11 @@
     "static/media/close-icon.svg": "/fatherPay/static/media/close-icon.e98ef59e89d0f07a571d.svg",
     "static/media/check-icon.svg": "/fatherPay/static/media/check-icon.581c3e8956da74374c82.svg",
     "static/media/white-check-icon.svg": "/fatherPay/static/media/white-check-icon.f371593ac80794a18fbb.svg",
-    "main.969c8c59.css.map": "/fatherPay/static/css/main.969c8c59.css.map",
+    "main.f23902ec.css.map": "/fatherPay/static/css/main.f23902ec.css.map",
     "main.a66f21a2.js.map": "/fatherPay/static/js/main.a66f21a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.969c8c59.css",
+    "static/css/main.f23902ec.css",
     "static/js/main.a66f21a2.js"
   ]
 }
